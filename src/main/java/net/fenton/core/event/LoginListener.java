@@ -35,15 +35,6 @@ public class LoginListener implements Listener {
 //                } else {
 //                    FentonPlayerHandler.getInstance().newPlayer(p.getUniqueId());
 //                }
-                if(Core.getInstance().getMainMongoInstance().getClient() == null) {
-                    FentonPlayer fp = new FentonPlayer(p.getUniqueId(), FentonRank.FEN_PLUS, FentonRank.FEN_PLUS,
-                            new FentonSettings(new FentonDisguise(false, false, p.getName(), "null"),
-                                    false, false),
-                            new FentonAchievement(FentonAchievementHandler.getInstance().getDefaultAchievements()),
-                            new FentonCoreBox(new ArrayList<CoreBox>()), new FentonItems(),
-                            new FentonPlayerPack(PlayerPack.DEFAULT, new HashMap<String, Object>()),
-                            new PlayerVisibility(PlayerVisibilityLevel.ALL), 1, 1000);
-                }
                 Core.getInstance().getMainMongoInstance().retrievePlayer(p);
                 Bukkit.getServer().getPluginManager().callEvent(postLogin);
             }

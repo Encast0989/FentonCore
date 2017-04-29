@@ -155,6 +155,16 @@ public class MongoDBCore {
     }
 
     public void retrievePlayer(Player p) {
+        if(client == null) {
+            FentonPlayer fp = new FentonPlayer(p.getUniqueId(), FentonRank.FEN_PLUS, FentonRank.FEN_PLUS,
+                    new FentonSettings(new FentonDisguise(false, false, p.getName(), "null"),
+                            false, false),
+                    new FentonAchievement(FentonAchievementHandler.getInstance().getDefaultAchievements()),
+                    new FentonCoreBox(new ArrayList<CoreBox>()), new FentonItems(),
+                    new FentonPlayerPack(PlayerPack.DEFAULT, new HashMap<String, Object>()),
+                    new PlayerVisibility(PlayerVisibilityLevel.ALL), 1, 1000);
+            FentonPlayerHandler.getInstance().addPlayer(p.getUniqueId(), fp);
+        }
         Document data = players.find(eq("uuid", p.getUniqueId().toString())).first();
         if(data != null) {
             // General
@@ -217,6 +227,9 @@ public class MongoDBCore {
     }
 
     public void savePlayer(Player p) {
+        if(client == null) {
+            return;
+        }
         FentonPlayer fp = FentonPlayerHandler.getInstance().getPlayer(p.getUniqueId());
         players.updateOne(eq("uuid", p.getUniqueId().toString()),
                 combine(
