@@ -1,0 +1,35 @@
+main: net.fenton.core.Core
+version: ${project.version}
+name: FentonCore
+author: Encast
+description: Fenton Core for sub-servers and API for developers.
+
+commands:
+  fenton:
+    description: Fenton Command.
+  inventory:
+    description: inventory command.
+  vanish:
+    description: Vanish command.
+  nick:
+    description: Nickname command.
+  optimization:
+    description: Optimization command.
+  chat:
+    description: Chat Command.
+  fly:
+    description: Fly Command.
+  blasty:
+    description: Blasty Command.
+  list:
+    description: List Command.
+  setrank:
+    description: Setrank Command.
+  info:
+    description: Info Command.
+  media:
+    description: Media Command.
+  where:
+    description: Where Command.
+  map:
+    description: Map Command.

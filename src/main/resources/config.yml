@@ -1,0 +1,4 @@
+core:
+lobby:
+  lobby_server: false
+settings:
