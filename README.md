@@ -1,4 +1,4 @@
 # FentonCore
 FentonCore for Fenton(MC) Network.
 
-Maybe I'll add something later.
+A network framework created for Fenton.
